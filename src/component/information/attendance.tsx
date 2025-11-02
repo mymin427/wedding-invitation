@@ -91,9 +91,9 @@ export const AttendanceInfo = () => {
     <div className="info-card">
       <div className="label">참석 의사 전달</div>
       <div className="content">
-        신랑, 신부에게 참석의사를
+        원활한 예식 준비를 위해 
         <br />
-        미리 전달할 수 있어요.
+        참석 여부를 전달해 주시면 감사하겠습니다.
       </div>
 
       <div className="break" />

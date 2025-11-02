@@ -3,7 +3,7 @@ import ArrowLeft from "../../icons/angle-left-sm.svg?react"
 import { LazyDiv } from "../lazyDiv"
 import { Button } from "../button"
 import { useModal } from "../modal"
-import { GALLERY_IMAGES } from "../../images"
+import { GALLERY_IMAGES, GALLERY_THUMBS, GALLERY_ORIGINALS } from "../../images"
 
 const CAROUSEL_ITEMS = GALLERY_IMAGES.map((item, idx) => (
   <div className="carousel-item" key={idx}>
@@ -35,11 +35,7 @@ export const Gallery = () => {
   const carouselRef = useRef<HTMLDivElement>({} as HTMLDivElement)
 
   useEffect(() => {
-    // preload images
-    GALLERY_IMAGES.forEach((image) => {
-      const img = new Image()
-      img.src = image
-    })
+    // no eager preloading to speed up initial load
   }, [])
 
   const [slide, _setSlide] = useState(0)
@@ -48,6 +44,8 @@ export const Gallery = () => {
     _setSlide(slide)
     slideRef.current = slide
   }
+
+  // parent-level neighbor preload removed; handled within lightbox component
 
   const [status, _setStatus] = useState<Status>("stationary")
   const statusRef = useRef<Status>("stationary")
@@ -231,6 +229,9 @@ export const Gallery = () => {
 
   useEffect(() => {
     const carouselElement = carouselRef.current
+    if (!carouselElement || !(carouselElement as any).addEventListener) {
+      return
+    }
 
     window.addEventListener("mousemove", onMouseMove)
     carouselElement.addEventListener("touchmove", onTouchMove)
@@ -276,130 +277,68 @@ export const Gallery = () => {
     }
   }, [status])
 
+  const LightboxContent = ({ initialIndex }: { initialIndex: number }) => {
+    const [idx, setIdx] = useState(initialIndex)
+    const len = GALLERY_ORIGINALS.length
+    useEffect(() => {
+      const prev = (idx + len - 1) % len
+      const next = (idx + 1) % len
+      ;[prev, next].forEach((i) => {
+        const img = new Image()
+        img.src = GALLERY_ORIGINALS[i]
+      })
+    }, [idx, len])
+
+    return (
+      <>
+        <div className="viewer">
+          <div className="nav left" onClick={() => setIdx((idx + len - 1) % len)}>
+            <ArrowLeft className="arrow" />
+          </div>
+          <img src={GALLERY_ORIGINALS[idx]} alt={`${idx}`} draggable={false} />
+          <div className="nav right" onClick={() => setIdx((idx + 1) % len)}>
+            <ArrowLeft className="arrow right" />
+          </div>
+        </div>
+        <div className="counter">{idx + 1} / {len}</div>
+      </>
+    )
+  }
+
+  const openLightbox = (startIdx: number) => {
+    openModal({
+      className: "lightbox-modal",
+      closeOnClickBackground: true,
+      header: <div className="title">사진 보기</div>,
+      content: <LightboxContent initialIndex={startIdx} />,
+      footer: (
+        <Button
+          buttonStyle="style2"
+          className="bg-light-grey-color text-dark-color"
+          onClick={closeModal}
+        >
+          닫기
+        </Button>
+      ),
+    })
+  }
+
   return (
     <LazyDiv className="card gallery">
       <h2 className="english">Gallery</h2>
-      <div className="carousel-wrapper">
-        <div
-          className="carousel"
-          ref={carouselRef}
-          onMouseDown={(e) =>
-            click(
-              statusRef.current,
-              e.clientX,
-              e.clientY,
-              e.currentTarget.clientWidth,
-            )
-          }
-          onTouchStart={(e) =>
-            click(
-              statusRef.current,
-              e.targetTouches[0].clientX,
-              e.targetTouches[0].clientY,
-              e.currentTarget.clientWidth,
-            )
-          }
-        >
-          <div className={transformClass} style={transformStyle}>
-            {["dragging", "dragEnding"].includes(status) && [
-              ...(slide === 0
-                ? [CAROUSEL_ITEMS[CAROUSEL_ITEMS.length - 1]]
-                : []),
-              ...CAROUSEL_ITEMS.slice(slide === 0 ? 0 : slide - 1, slide + 2),
-              ...(slide === CAROUSEL_ITEMS.length - 1
-                ? [CAROUSEL_ITEMS[0]]
-                : []),
-            ]}
-            {status === "moving-right" &&
-              CAROUSEL_ITEMS.slice(moveOption.srcIdx, moveOption.dstIdx + 1)}
-            {status === "moving-left" &&
-              CAROUSEL_ITEMS.slice(moveOption.dstIdx, moveOption.srcIdx + 1)}
-            {["stationary", "clicked", "clickCanceled"].includes(status) &&
-              CAROUSEL_ITEMS[slide]}
-          </div>
-          <div className="carousel-control">
-            <div
-              className="control left"
-              onMouseDown={() => {
-                if (statusRef.current === "stationary") setClickMove("left")
-              }}
-              onTouchStart={() => {
-                if (statusRef.current === "stationary") setClickMove("left")
-              }}
-            >
-              <ArrowLeft className="arrow" />
-            </div>
-            <div
-              className="control right"
-              onMouseDown={() => {
-                if (statusRef.current === "stationary") setClickMove("right")
-              }}
-              onTouchStart={() => {
-                if (statusRef.current === "stationary") setClickMove("right")
-              }}
-            >
-              <ArrowLeft className="arrow right" />
-            </div>
-          </div>
-        </div>
-        <div className="carousel-indicator">
-          {CAROUSEL_ITEMS.map((_, idx) => (
-            <button
-              key={idx}
-              className={`indicator${idx === slide ? " active" : ""}`}
-              onClick={() =>
-                onIndicatorClick(statusRef.current, slideRef.current, idx)
-              }
-            />
-          ))}
-        </div>
+      <div className="photo-grid">
+        {GALLERY_THUMBS.map((image, idx) => (
+          <img
+            key={idx}
+            src={image}
+            alt={`${idx}`}
+            draggable={false}
+            loading="lazy"
+            decoding="async"
+            onClick={() => openLightbox(idx)}
+          />
+        ))}
       </div>
-
-      <div className="break" />
-
-      <Button
-        onClick={() =>
-          openModal({
-            className: "all-photo-modal",
-            closeOnClickBackground: true,
-            header: <div className="title">사진 전체보기</div>,
-            content: (
-              <>
-                <div className="photo-list">
-                  {GALLERY_IMAGES.map((image, idx) => (
-                    <img
-                      key={idx}
-                      src={image}
-                      alt={`${idx}`}
-                      draggable={false}
-                      onClick={() => {
-                        if (statusRef.current === "stationary") {
-                          if (idx !== slideRef.current) {
-                            move(slideRef.current, idx)
-                          }
-                          closeModal()
-                        }
-                      }}
-                    />
-                  ))}
-                </div>
-                <div className="break" />
-              </>
-            ),
-            footer: (
-              <Button
-                buttonStyle="style2"
-                className="bg-light-grey-color text-dark-color"
-                onClick={closeModal}
-              >
-                닫기
-              </Button>
-            ),
-          })
-        }
-      >
-        사진 전체보기
-      </Button>
     </LazyDiv>
   )
 }

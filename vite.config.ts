@@ -2,6 +2,7 @@ import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import svgr from "vite-plugin-svgr"
 import fs from "fs"
+import { imagetools } from "vite-imagetools"
 
 import pkg from "./package.json"
 import { createHtmlPlugin } from "vite-plugin-html"
@@ -29,6 +30,7 @@ export default defineConfig({
   plugins: [
     react(),
     svgr(),
+    imagetools(),
     createHtmlPlugin({
       inject: {
         data: {

@@ -14,7 +14,7 @@ export const WEDDING_DATE_FORMAT = `YYYY년 MMMM D일 dddd A h시${WEDDING_DATE.
 
 // 예식 당월 휴무일. 켈린더에 표시하기 위함.
 // 예: 예식일 8월 -> 8월 15일 광복절
-export const HOLIDAYS = [15]
+export const HOLIDAYS = [1]
 
 export const LOCATION = "서울가든호텔 2F 그랜드 볼룸"
 export const LOCATION_ADDRESS = "서울시 마포구 마포대로 58"

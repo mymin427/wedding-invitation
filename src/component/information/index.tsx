@@ -12,9 +12,13 @@ export const Information1 = () => {
       <div className="info-card">
         <div className="label">식사 안내</div>
         <div className="content">
-          식사시간: 12시 30분 ~ 14시 30분
+          본 예식은 동시예식으로 진행되며
           <br />
-          장소: 지하 1층 연회장
+          1부 예식 후부터 식사 제공이 시작됩니다.
+          <br />
+          하객 여러분께서는 착석하신 자리에서
+          <br />
+          식사하시며 축하의 시간을 함께해주세요.
         </div>
       </div>
     </>
