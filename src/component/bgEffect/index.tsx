@@ -1,13 +1,12 @@
 import { useEffect, useRef } from "react"
-import patelUrl from "../../icons/petal.png"
 
-const X_SPEED = 0.6
-const X_SPEED_VARIANCE = 0.8
+const X_SPEED = 0.2
+const X_SPEED_VARIANCE = 0.3
 
-const Y_SPEED = 0.4
-const Y_SPEED_VARIANCE = 0.4
+const Y_SPEED = 0.6
+const Y_SPEED_VARIANCE = 0.5
 
-const FLIP_SPEED_VARIANCE = 0.02
+const FLIP_SPEED_VARIANCE = 0.005
 
 // Petal class
 class Petal {
@@ -24,7 +23,6 @@ class Petal {
   constructor(
     private canvas: HTMLCanvasElement,
     private ctx: CanvasRenderingContext2D,
-    private petalImg: HTMLImageElement,
   ) {
     this.x = Math.random() * canvas.width
     this.y = Math.random() * canvas.height * 2 - canvas.height
@@ -33,9 +31,9 @@ class Petal {
   }
 
   initialize() {
-    this.w = 25 + Math.random() * 15
-    this.h = 20 + Math.random() * 10
-    this.opacity = this.w / 80
+    this.w = 3 + Math.random() * 3
+    this.h = this.w
+    this.opacity = 0.4 + Math.random() * 0.4
     this.flip = Math.random()
 
     this.xSpeed = X_SPEED + Math.random() * X_SPEED_VARIANCE
@@ -57,13 +55,28 @@ class Petal {
       }
     }
     this.ctx.globalAlpha = this.opacity
-    this.ctx.drawImage(
-      this.petalImg,
-      this.x,
-      this.y,
-      this.w * (0.6 + Math.abs(Math.cos(this.flip)) / 3),
-      this.h * (0.8 + Math.abs(Math.sin(this.flip)) / 5),
-    )
+    const r = (this.w / 2) * (0.8 + Math.abs(Math.cos(this.flip)) / 5)
+
+    // subtle shadow for visibility on light backgrounds
+    this.ctx.shadowColor = "rgba(0, 0, 0, 0.15)"
+    this.ctx.shadowBlur = 4
+    this.ctx.shadowOffsetX = 0
+    this.ctx.shadowOffsetY = 0
+
+    // fill
+    this.ctx.fillStyle = "#FFFFFF"
+    this.ctx.beginPath()
+    this.ctx.arc(this.x, this.y, r, 0, Math.PI * 2)
+    this.ctx.fill()
+
+    // outline stroke for extra contrast (winter pastel tone)
+    this.ctx.strokeStyle = "#D5E1EE"
+    this.ctx.lineWidth = 1
+    this.ctx.stroke()
+
+    // reset shadow so it doesn't accumulate
+    this.ctx.shadowColor = "transparent"
+    this.ctx.shadowBlur = 0
   }
 
   animate() {
@@ -90,18 +103,15 @@ export const BGEffect = () => {
 
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D
 
-    const petalImg = new Image()
-    petalImg.src = patelUrl
-
     const getPetalNum = () => {
-      return Math.floor((window.innerWidth * window.innerHeight) / 30000)
+      return Math.floor((window.innerWidth * window.innerHeight) / 20000)
     }
 
     const initializePetals = () => {
       const count = getPetalNum()
       const petals = []
       for (let i = 0; i < count; i++) {
-        petals.push(new Petal(canvas, ctx, petalImg))
+        petals.push(new Petal(canvas, ctx))
       }
       petalsRef.current = petals
     }
@@ -124,7 +134,7 @@ export const BGEffect = () => {
         const newPetalNum = getPetalNum()
         if (newPetalNum > petalsRef.current.length) {
           for (let i = petalsRef.current.length; i < newPetalNum; i++) {
-            petalsRef.current.push(new Petal(canvas, ctx, petalImg))
+            petalsRef.current.push(new Petal(canvas, ctx))
           }
         } else if (newPetalNum < petalsRef.current.length) {
           petalsRef.current.splice(newPetalNum)
