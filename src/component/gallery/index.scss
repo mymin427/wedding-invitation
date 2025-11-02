@@ -64,6 +64,14 @@ $transition-duration: 0.3s;
       opacity: 0.8;
     }
   }
+  .footer {
+    display: flex;
+    flex-direction: row;
+    padding: 0 0.7rem 0.7rem 0.7rem;
+    button {
+      width: 100%;
+    }
+  }
 }
 
 .gallery {

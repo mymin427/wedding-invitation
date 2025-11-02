@@ -7,6 +7,11 @@
   }
 }
 
+/* Ensure empty modal wrapper never intercepts clicks */
+.modals-wrappeer {
+  pointer-events: none;
+}
+
 .modal-background {
   position: fixed;
   top: 0;
@@ -14,6 +19,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
 
   animation-name: modal-fade-in;
   animation-duration: 0.5s;
