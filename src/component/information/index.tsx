@@ -1,4 +1,4 @@
-import { BRIDE_INFO, GROOM_INFO } from "../../const"
+import { BRIDE_INFO, GROOM_INFO } from "../../contacts"
 import { STATIC_ONLY } from "../../env"
 import { Button } from "../button"
 import { LazyDiv } from "../lazyDiv"

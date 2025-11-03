@@ -42,49 +42,9 @@ export const BRIDE_FIRSTNAME = "은서"
 export const BRIDE_TITLE = "딸"
 export const BRIDE_FATHER = "정용욱"
 export const BRIDE_MOTHER = "김애녀"
-export const BRIDE_INFO = [
-  {
-    relation: "신부",
-    name: BRIDE_FULLNAME,
-    phone: "010-0000-0000",
-    account: "우리은행 0000000000000",
-  },
-  {
-    relation: "신부 아버지",
-    name: BRIDE_FATHER,
-    phone: "010-0000-0000",
-    account: "하나은행 00000000000",
-  },
-  {
-    relation: "신부 어머니",
-    name: BRIDE_MOTHER,
-    phone: "010-0000-0000",
-    account: "하나은행 00000000000000",
-  },
-]
 
 export const GROOM_FULLNAME = "현상민"
 export const GROOM_FIRSTNAME = "상민"
 export const GROOM_TITLE = "아들"
 export const GROOM_FATHER = "현병대"
 export const GROOM_MOTHER = "김영화"
-export const GROOM_INFO = [
-  {
-    relation: "신랑",
-    name: GROOM_FULLNAME,
-    phone: "010-0000-0000",
-    account: "하나은행 00000000000000",
-  },
-  {
-    relation: "신랑 아버지",
-    name: GROOM_FATHER,
-    phone: "010-0000-0000",
-    account: "신한은행 000000000000",
-  },
-  {
-    relation: "신랑 어머니",
-    name: GROOM_MOTHER,
-    phone: "010-0000-0000",
-    account: "국민은행 000000000000",
-  },
-]

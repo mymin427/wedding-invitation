@@ -1,11 +1,10 @@
 import { Fragment } from "react/jsx-runtime"
+import { BRIDE_INFO, GROOM_INFO } from "../../contacts"
 import {
   BRIDE_FULLNAME,
-  BRIDE_INFO,
   BRIDE_FATHER,
   BRIDE_MOTHER,
   GROOM_FULLNAME,
-  GROOM_INFO,
   GROOM_FATHER,
   GROOM_MOTHER,
   GROOM_TITLE,
