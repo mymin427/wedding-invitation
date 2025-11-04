@@ -16,13 +16,14 @@ export const WEDDING_DATE_FORMAT = `YYYY년 MMMM D일 dddd A h시${WEDDING_DATE.
 // 예: 예식일 8월 -> 8월 15일 광복절
 export const HOLIDAYS = [1]
 
+export const LOCATION_NAME = "서울가든호텔"
 export const LOCATION = "서울가든호텔 2F 그랜드 볼룸"
 export const LOCATION_ADDRESS = "서울시 마포구 마포대로 58"
 
 // 카카오톡 공유 시 위치 정보로 사용할 주소.
 // LOCATION 과 동일하게 설정해도 무방하나, 필요에 따라 좀 더 상세히 작성 가능.
-export const SHARE_ADDRESS = LOCATION
-export const SHARE_ADDRESS_TITLE = LOCATION
+export const SHARE_ADDRESS = LOCATION_NAME
+export const SHARE_ADDRESS_TITLE = LOCATION_NAME
 
 // 네이버 지도 및 카카오 네비게이션에 사용할 좌표. [경도, 위도] 형식.
 export const WEDDING_HALL_POSITION = [126.948381, 37.540694]
