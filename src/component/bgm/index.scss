@@ -1,0 +1,19 @@
+.bgm-toggle {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  color: #222;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bgm-toggle:hover {
+  background: rgba(255,255,255,1);
+}

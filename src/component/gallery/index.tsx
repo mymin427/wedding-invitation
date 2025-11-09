@@ -289,9 +289,50 @@ export const Gallery = () => {
       })
     }, [idx, len])
 
+    const startXRef = useRef(0)
+    const startYRef = useRef(0)
+    const lastDxRef = useRef(0)
+    const swipingRef = useRef(false)
+
+    const onTouchStartViewer = (e: any) => {
+      const t = e.targetTouches[0]
+      startXRef.current = t.clientX
+      startYRef.current = t.clientY
+      lastDxRef.current = 0
+      swipingRef.current = false
+    }
+
+    const onTouchMoveViewer = (e: any) => {
+      const t = e.targetTouches[0]
+      const dx = t.clientX - startXRef.current
+      const dy = t.clientY - startYRef.current
+      lastDxRef.current = dx
+      if (!swipingRef.current) {
+        if (Math.abs(dx) > DRAG_SENSITIVITY && Math.abs(dx) > Math.abs(dy)) {
+          swipingRef.current = true
+        }
+      }
+      if (swipingRef.current) {
+        e.preventDefault()
+      }
+    }
+
+    const onTouchEndViewer = () => {
+      if (!swipingRef.current) return
+      const dx = lastDxRef.current
+      const threshold = 30
+      if (dx > threshold) {
+        setIdx((idx + len - 1) % len)
+      } else if (dx < -threshold) {
+        setIdx((idx + 1) % len)
+      }
+      swipingRef.current = false
+      lastDxRef.current = 0
+    }
+
     return (
       <>
-        <div className="viewer">
+        <div className="viewer" onTouchStart={onTouchStartViewer} onTouchMove={onTouchMoveViewer} onTouchEnd={onTouchEndViewer}>
           <div className="nav left" onClick={() => setIdx((idx + len - 1) % len)}>
             <ArrowLeft className="arrow" />
           </div>

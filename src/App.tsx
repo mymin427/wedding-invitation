@@ -10,10 +10,13 @@ import { GuestBook } from "./component/guestbook"
 import { LazyDiv } from "./component/lazyDiv"
 import { ShareButton } from "./component/shareButton"
 import { STATIC_ONLY } from "./env"
+import { Bgm } from "./component/bgm"
+import { FooterCredit } from "./component/footerCredit"
 
 function App() {
   return (
     <div className="background">
+      <Bgm />
       <BGEffect />
       <div className="card-view">
         <LazyDiv className="card-group">
@@ -45,9 +48,11 @@ function App() {
         </LazyDiv>
 
         <ShareButton />
+        <FooterCredit />
       </div>
     </div>
   )
 }
 
 export default App
+
