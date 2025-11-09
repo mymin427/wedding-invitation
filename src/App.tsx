@@ -11,7 +11,6 @@ import { LazyDiv } from "./component/lazyDiv"
 import { ShareButton } from "./component/shareButton"
 import { STATIC_ONLY } from "./env"
 import { Bgm } from "./component/bgm"
-import { FooterCredit } from "./component/footerCredit"
 
 function App() {
   return (
@@ -48,7 +47,6 @@ function App() {
         </LazyDiv>
 
         <ShareButton />
-        <FooterCredit />
       </div>
     </div>
   )
