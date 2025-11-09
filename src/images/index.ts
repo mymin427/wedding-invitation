@@ -1,51 +1,41 @@
 import coverImage from "./cover.jpg"
-import image1 from "./SEOL1834.jpg"
-import image2 from "./SEOL1934.jpg"
-import image3 from "./SEOL2045.jpg"
-import image4 from "./SEOL2072.jpg"
-import image5 from "./SEOL2092.jpg"
-import image6 from "./SEOL2168.jpg"
-import image7 from "./SEOL2184.jpg"
-import image8 from "./SEOL2433.jpg"
-import image9 from "./SEOL2442.jpg"
-import image10 from "./SEOL2475.jpg"
-import image11 from "./SEOL2589.jpg"
-import image12 from "./SEOL2756.jpg"
-import image13 from "./SEOL2804.jpg"
-import image14 from "./SEOL2848.jpg"
-import image15 from "./SEOL2905.jpg"
-import image16 from "./SEOL2939.jpg"
-import image17 from "./SEOL3013.jpg"
-import image18 from "./SEOL3125.jpg"
-import image19 from "./SEOL3136.jpg"
-import image20 from "./SEOL3146.jpg"
-import image21 from "./SEOL3318.jpg"
-import image22 from "./SEOL3423.jpg"
-import image23 from "./SEOL3479.jpg"
+import image1 from "./1.SEOL2045-1.jpg"
+import image2 from "./2.SEOL2072-1.jpg"
+import image3 from "./3.SEOL2089-1.jpg"
+import image4 from "./4.SEOL2167-1.jpg"
+import image5 from "./5.SEOL2251-1.jpg"
+import image6 from "./6.SEOL2148-1.jpg"
+import image7 from "./7.SEOL2804-1.jpg"
+import image8 from "./8.SEOL2905.jpg"
+import image9 from "./9.SEOL3013.jpg"
+import image10 from "./10.SEOL2626-1.jpg"
+import image11 from "./11.SEOL2432-1.jpg"
+import image12 from "./12.SEOL2443.jpg"
+import image13 from "./13.SEOL3135-1.jpg"
+import image14 from "./14.SEOL3154-1.jpg"
+import image15 from "./15.SEOL3353-1.jpg"
+import image16 from "./16.SEOL3423.jpg"
+import image17 from "./17.SEOL3502-1.jpg"
+import image18 from "./18.SEOL2832-1.jpg"
 
-import thumb1 from "./SEOL1834.jpg?imagetools&w=800&format=webp&as=src"
-import thumb2 from "./SEOL1934.jpg?imagetools&w=800&format=webp&as=src"
-import thumb3 from "./SEOL2045.jpg?imagetools&w=800&format=webp&as=src"
-import thumb4 from "./SEOL2072.jpg?imagetools&w=800&format=webp&as=src"
-import thumb5 from "./SEOL2092.jpg?imagetools&w=800&format=webp&as=src"
-import thumb6 from "./SEOL2168.jpg?imagetools&w=800&format=webp&as=src"
-import thumb7 from "./SEOL2184.jpg?imagetools&w=800&format=webp&as=src"
-import thumb8 from "./SEOL2433.jpg?imagetools&w=800&format=webp&as=src"
-import thumb9 from "./SEOL2442.jpg?imagetools&w=800&format=webp&as=src"
-import thumb10 from "./SEOL2475.jpg?imagetools&w=800&format=webp&as=src"
-import thumb11 from "./SEOL2589.jpg?imagetools&w=800&format=webp&as=src"
-import thumb12 from "./SEOL2756.jpg?imagetools&w=800&format=webp&as=src"
-import thumb13 from "./SEOL2804.jpg?imagetools&w=800&format=webp&as=src"
-import thumb14 from "./SEOL2848.jpg?imagetools&w=800&format=webp&as=src"
-import thumb15 from "./SEOL2905.jpg?imagetools&w=800&format=webp&as=src"
-import thumb16 from "./SEOL2939.jpg?imagetools&w=800&format=webp&as=src"
-import thumb17 from "./SEOL3013.jpg?imagetools&w=800&format=webp&as=src"
-import thumb18 from "./SEOL3125.jpg?imagetools&w=800&format=webp&as=src"
-import thumb19 from "./SEOL3136.jpg?imagetools&w=800&format=webp&as=src"
-import thumb20 from "./SEOL3146.jpg?imagetools&w=800&format=webp&as=src"
-import thumb21 from "./SEOL3318.jpg?imagetools&w=800&format=webp&as=src"
-import thumb22 from "./SEOL3423.jpg?imagetools&w=800&format=webp&as=src"
-import thumb23 from "./SEOL3479.jpg?imagetools&w=800&format=webp&as=src"
+import thumb1 from "./1.SEOL2045-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb2 from "./2.SEOL2072-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb3 from "./3.SEOL2089-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb4 from "./4.SEOL2167-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb5 from "./5.SEOL2251-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb6 from "./6.SEOL2148-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb7 from "./7.SEOL2804-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb8 from "./8.SEOL2905.jpg?imagetools&w=800&format=webp&as=src"
+import thumb9 from "./9.SEOL3013.jpg?imagetools&w=800&format=webp&as=src"
+import thumb10 from "./10.SEOL2626-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb11 from "./11.SEOL2432-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb12 from "./12.SEOL2443.jpg?imagetools&w=800&format=webp&as=src"
+import thumb13 from "./13.SEOL3135-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb14 from "./14.SEOL3154-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb15 from "./15.SEOL3353-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb16 from "./16.SEOL3423.jpg?imagetools&w=800&format=webp&as=src"
+import thumb17 from "./17.SEOL3502-1.jpg?imagetools&w=800&format=webp&as=src"
+import thumb18 from "./18.SEOL2832-1.jpg?imagetools&w=800&format=webp&as=src"
 
 export const COVER_IMAGE = coverImage
 
@@ -67,38 +57,28 @@ export const GALLERY_IMAGES = [
   image15,
   image16,
   image17,
-  image18,
-  image19,
-  image20,
-  image21,
-  image22,
-  image23
+  image18
 ]
 
 // Large originals for lightbox (1800px webp)
-import orig1 from "./SEOL1834.jpg?imagetools&w=1800&format=webp&as=src"
-import orig2 from "./SEOL1934.jpg?imagetools&w=1800&format=webp&as=src"
-import orig3 from "./SEOL2045.jpg?imagetools&w=1800&format=webp&as=src"
-import orig4 from "./SEOL2072.jpg?imagetools&w=1800&format=webp&as=src"
-import orig5 from "./SEOL2092.jpg?imagetools&w=1800&format=webp&as=src"
-import orig6 from "./SEOL2168.jpg?imagetools&w=1800&format=webp&as=src"
-import orig7 from "./SEOL2184.jpg?imagetools&w=1800&format=webp&as=src"
-import orig8 from "./SEOL2433.jpg?imagetools&w=1800&format=webp&as=src"
-import orig9 from "./SEOL2442.jpg?imagetools&w=1800&format=webp&as=src"
-import orig10 from "./SEOL2475.jpg?imagetools&w=1800&format=webp&as=src"
-import orig11 from "./SEOL2589.jpg?imagetools&w=1800&format=webp&as=src"
-import orig12 from "./SEOL2756.jpg?imagetools&w=1800&format=webp&as=src"
-import orig13 from "./SEOL2804.jpg?imagetools&w=1800&format=webp&as=src"
-import orig14 from "./SEOL2848.jpg?imagetools&w=1800&format=webp&as=src"
-import orig15 from "./SEOL2905.jpg?imagetools&w=1800&format=webp&as=src"
-import orig16 from "./SEOL2939.jpg?imagetools&w=1800&format=webp&as=src"
-import orig17 from "./SEOL3013.jpg?imagetools&w=1800&format=webp&as=src"
-import orig18 from "./SEOL3125.jpg?imagetools&w=1800&format=webp&as=src"
-import orig19 from "./SEOL3136.jpg?imagetools&w=1800&format=webp&as=src"
-import orig20 from "./SEOL3146.jpg?imagetools&w=1800&format=webp&as=src"
-import orig21 from "./SEOL3318.jpg?imagetools&w=1800&format=webp&as=src"
-import orig22 from "./SEOL3423.jpg?imagetools&w=1800&format=webp&as=src"
-import orig23 from "./SEOL3479.jpg?imagetools&w=1800&format=webp&as=src"
+import orig1 from "./1.SEOL2045-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig2 from "./2.SEOL2072-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig3 from "./3.SEOL2089-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig4 from "./4.SEOL2167-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig5 from "./5.SEOL2251-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig6 from "./6.SEOL2148-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig7 from "./7.SEOL2804-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig8 from "./8.SEOL2905.jpg?imagetools&w=1800&format=webp&as=src"
+import orig9 from "./9.SEOL3013.jpg?imagetools&w=1800&format=webp&as=src"
+import orig10 from "./10.SEOL2626-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig11 from "./11.SEOL2432-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig12 from "./12.SEOL2443.jpg?imagetools&w=1800&format=webp&as=src"
+import orig13 from "./13.SEOL3135-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig14 from "./14.SEOL3154-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig15 from "./15.SEOL3353-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig16 from "./16.SEOL3423.jpg?imagetools&w=1800&format=webp&as=src"
+import orig17 from "./17.SEOL3502-1.jpg?imagetools&w=1800&format=webp&as=src"
+import orig18 from "./18.SEOL2832-1.jpg?imagetools&w=1800&format=webp&as=src"
 
 export const GALLERY_ORIGINALS = [
   orig1,
@@ -119,11 +99,6 @@ export const GALLERY_ORIGINALS = [
   orig16,
   orig17,
   orig18,
-  orig19,
-  orig20,
-  orig21,
-  orig22,
-  orig23,
 ]
 
 // Thumbnails (800px webp) for fast grid view
@@ -146,9 +121,4 @@ export const GALLERY_THUMBS = [
   thumb16,
   thumb17,
   thumb18,
-  thumb19,
-  thumb20,
-  thumb21,
-  thumb22,
-  thumb23,
 ]
