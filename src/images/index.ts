@@ -1,4 +1,7 @@
 import coverImage from "./cover.jpg"
+import image0_1 from "./0-1.SEOL1893.jpg"
+import image0_2 from "./0-2.SEOL2704.jpg"
+import image0_3 from "./0-3.SEOL2954.jpg"
 import image1 from "./1.SEOL2045-1.jpg"
 import image2 from "./2.SEOL2072-1.jpg"
 import image3 from "./3.SEOL2089-1.jpg"
@@ -18,6 +21,9 @@ import image16 from "./16.SEOL3423.jpg"
 import image17 from "./17.SEOL3502-1.jpg"
 import image18 from "./18.SEOL2832-1.jpg"
 
+import thumb0_1 from "./0-1.SEOL1893.jpg?imagetools&w=800&format=webp&as=src"
+import thumb0_2 from "./0-2.SEOL2704.jpg?imagetools&w=800&format=webp&as=src"
+import thumb0_3 from "./0-3.SEOL2954.jpg?imagetools&w=800&format=webp&as=src"
 import thumb1 from "./1.SEOL2045-1.jpg?imagetools&w=800&format=webp&as=src"
 import thumb2 from "./2.SEOL2072-1.jpg?imagetools&w=800&format=webp&as=src"
 import thumb3 from "./3.SEOL2089-1.jpg?imagetools&w=800&format=webp&as=src"
@@ -40,6 +46,9 @@ import thumb18 from "./18.SEOL2832-1.jpg?imagetools&w=800&format=webp&as=src"
 export const COVER_IMAGE = coverImage
 
 export const GALLERY_IMAGES = [
+  image0_1,
+  image0_2,
+  image0_3,
   image1,
   image2,
   image3,
@@ -61,6 +70,9 @@ export const GALLERY_IMAGES = [
 ]
 
 // Large originals for lightbox (1800px webp)
+import orig0_1 from "./0-1.SEOL1893.jpg?imagetools&w=1800&format=webp&as=src"
+import orig0_2 from "./0-2.SEOL2704.jpg?imagetools&w=1800&format=webp&as=src"
+import orig0_3 from "./0-3.SEOL2954.jpg?imagetools&w=1800&format=webp&as=src"
 import orig1 from "./1.SEOL2045-1.jpg?imagetools&w=1800&format=webp&as=src"
 import orig2 from "./2.SEOL2072-1.jpg?imagetools&w=1800&format=webp&as=src"
 import orig3 from "./3.SEOL2089-1.jpg?imagetools&w=1800&format=webp&as=src"
@@ -81,6 +93,9 @@ import orig17 from "./17.SEOL3502-1.jpg?imagetools&w=1800&format=webp&as=src"
 import orig18 from "./18.SEOL2832-1.jpg?imagetools&w=1800&format=webp&as=src"
 
 export const GALLERY_ORIGINALS = [
+  orig0_1,
+  orig0_2,
+  orig0_3,
   orig1,
   orig2,
   orig3,
@@ -103,6 +118,9 @@ export const GALLERY_ORIGINALS = [
 
 // Thumbnails (800px webp) for fast grid view
 export const GALLERY_THUMBS = [
+  thumb0_1,
+  thumb0_2,
+  thumb0_3,
   thumb1,
   thumb2,
   thumb3,
